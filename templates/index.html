@@ -1,0 +1,61 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Interview Question Generator</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        {% csrf_token %}
+
+        <h1>AI Interview Question Generator</h1>
+
+
+        <p class="description">
+            Enter a job title to generate interview questions.
+        </p>
+
+        <div class="input-section">
+
+            <input
+                type="text"
+                id="job-title"
+                placeholder="Enter a job title"
+            >
+
+            <button id="generate-btn">
+                Generate Questions
+            </button>
+
+        </div>
+
+        <div id="loading" class="hidden">
+
+            Generating interview questions...
+        </div>
+
+        <div id="error-message" class="hidden"></div>
+
+        <div id="questions-container">
+
+        </div>
+
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>
