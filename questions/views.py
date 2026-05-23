@@ -1,37 +1,3 @@
-"""
-from django.shortcuts import render      #Imports Django’s render function, so the HTML file can be loaded, and then it combines it with Django, and sends it to browser.
-from django.http import JsonResponse
-
-import json
-
-def home(request):  #so that what it sent to the browser can be viewed, this line creates a view function named home. The view function takes a request object as an argument, which contains information about the incoming HTTP request.
-    
-
-    return render(request, "index.html")    #This makes a request - find index.html, render it and send to browser
-def generate_questions(request):            #This is acting like an API endpoint.
-
-    if request.method == "POST":            #This line indicates that this view function will only handle POST requests (Post requests sends data). When a POST request is made to this endpoint, the code inside this block will be executed.
-
-        data = json.loads(request.body)     #The body there means the raw data sent in the POST request. This line takes the raw data from the request body, which is expected to be in JSON format, and converts it into a Python dictionary using json.loads().
-
-        job_title = data.get("job_title")   #This line retrieves the value associated with the key "job_title" from the data dictionary. This value is expected to be provided in the POST request and represents the job title for which interview questions will be generated.
-
-
-        questions = [
-
-            f"What interests you about this {job_title} role?",
-
-            f"What skills makes you a good fit for the role of a {job_title}?",
-
-            f"How would you handle challenges in a {job_title} position?"
-        ]
-
-
-        return JsonResponse({
-            "questions": questions
-        })
-"""
-
 from django.shortcuts import render
 from django.http import JsonResponse
 import json

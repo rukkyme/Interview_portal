@@ -20,4 +20,5 @@ from django.urls import path, include   #This line imports the include function,
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', include('questions.urls')), #This sends homepage requests to the urls.py file in the questions app, 
+    path('', include('questions.urls')), #This sends homepage requests to the urls.py file in the questions app.
+]
